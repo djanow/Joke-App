@@ -1,0 +1,57 @@
+<ion-header>
+
+    <ion-navbar color="primary">
+      <button menuToggle ion-button icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>joke App</ion-title>
+    </ion-navbar>
+
+    <ion-toolbar color="secondary">
+      <ion-title>My favorite jokes</ion-title>
+    </ion-toolbar>
+
+  </ion-header>
+
+  <ion-content>
+
+    <ion-card *ngIf="favoriteJokes && favoriteJokes.length; else noFavorite">
+      <ion-list>
+        <ion-list-header class="my-jokes-header">Favorite Jokes</ion-list-header>
+        <ion-item *ngFor="let joke of favoriteJokes" (click)="goToDetail(joke)">
+          <ion-row>
+            <ion-col col-1>
+              <ion-icon name="star"></ion-icon>
+            </ion-col>
+            <ion-col col-6 text-wrap>
+              <h4>{{joke.category}}</h4>
+            </ion-col>
+            <ion-col col-3>
+              <h4>{{joke.body}}</h4>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-list>
+      <ion-card-content>
+        <p>To choose more jokes, click on this button.</p>
+        <button icon-left ion-button full (click)="findJoke()">
+          <ion-icon name="search"></ion-icon>
+          Find a joke
+        </button>
+      </ion-card-content>
+    </ion-card>
+
+    <ng-template #noFavorite>
+      <ion-card>
+        <ion-card-content>
+          <p>You haven't selected any joke</p>
+          <p>Please select one by using the button below</p>
+          <button ion-button icon-left full (click)="findJoke()">
+            <ion-icon name="search"></ion-icon>
+            Find a joke
+          </button>
+        </ion-card-content>
+      </ion-card>
+    </ng-template>
+
+  </ion-content>

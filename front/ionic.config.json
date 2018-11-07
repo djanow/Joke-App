@@ -1,0 +1,7 @@
+{
+  "name": "ionic3-joke-app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

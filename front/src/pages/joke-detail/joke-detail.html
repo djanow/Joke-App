@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title *ngIf="joke">{{joke.title}}</ion-title>
+    <ion-buttons end>
+      <button ion-button incon-only style="font-size: 1.7em" (click)=toggleFavorite()>
+        <ion-icon [name]="isFavorite ? 'star':'star-outline'"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card *ngIf="joke">
+    <ion-card-header>
+      <h2>categorie:
+        <ion-badge color="primary">{{joke.category}}</ion-badge>
+      </h2>
+    </ion-card-header>
+    
+    <ion-card-content>Blague:<br><br>
+      <span class="joke" >{{joke.body}}</span> 
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

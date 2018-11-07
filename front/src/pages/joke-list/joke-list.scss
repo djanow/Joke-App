@@ -1,0 +1,34 @@
+
+page-joke-list {
+    
+  .joke {
+    white-space: pre-line;
+ }
+ .slide-left > .slide-zoom {
+    text-align:left!important;
+ }
+ .slide-right > .slide-zoom {
+    text-align: right!important;
+
+ }
+ .fa-thumbs-up{
+    padding-left: 6px;
+    color: #11bd2e;
+    font-size: 50px;
+ }
+ .fa-thumbs-down{
+    padding-right: 6px;
+    color: #de1c24;
+    font-size: 50px;
+ }
+ .rating > .fa-thumbs-up{
+    padding: 5px 5px 5px 25px;
+    color: #11bd2e;
+    font-size: 25px;
+ }
+ .rating > .fa-thumbs-down{
+    padding: 5px 25px 5px 5px;
+    color: #de1c24;
+    font-size: 25px;
+ }
+}

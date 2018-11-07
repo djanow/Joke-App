@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>joke List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid *ngIf="jokes">
+    <ion-row>
+      <ion-col col-12 *ngFor="let joke of jokes">
+        
+        <ion-slides  initialSlide="1" (ionSlideDidChange)="slideChanged(joke)" #choice>
+
+          <ion-slide class='slide-right'>
+            
+              <i class="fas fa-thumbs-down"></i>
+
+          </ion-slide>
+
+          <ion-slide >
+            <ion-card *ngIf="joke"  (click)="goToDetail(joke)" >
+              <ion-card-header>
+                <h2>Humour	&nbsp; {{joke.category}}</h2>
+              </ion-card-header>
+              <hr>
+              <ion-card-content><br>
+                <span  class="joke" >{{joke.body}}</span> 
+                <hr>
+                <div class="rating">
+                    <i class="fas fa-thumbs-down"> &nbsp; <ion-badge color="dislike">{{joke.thumbDown}}</ion-badge></i>
+                    <i class="fas fa-thumbs-up"> &nbsp; <ion-badge color="like">{{joke.thumbUp}}</ion-badge></i>
+                </div>
+              </ion-card-content>
+
+
+            </ion-card>
+          </ion-slide>
+
+          <ion-slide class='slide-left'>
+              <i class="fas fa-thumbs-up"></i>
+          </ion-slide>
+
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
