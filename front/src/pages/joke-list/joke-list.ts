@@ -24,7 +24,8 @@ export class JokeListPage {
 
   ionViewDidLoad() {
     this.jokeApiProvider.getJokes().subscribe(data => {
-      this.jokes = data;
+      
+      this.jokes = this.shuffle(data);
     });
   }
 
@@ -40,6 +41,15 @@ export class JokeListPage {
       this.jokes.splice(index, 1);
     }
   }
+  
+  shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
   
   slideChanged(joke) {
     try{
